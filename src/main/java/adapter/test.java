@@ -3,7 +3,6 @@ package adapter;
 import adapter.adapters.deleteAdapter;
 import adapter.adapters.insertAdapter;
 import adapter.adapters.updateAdapter;
-
 public class test {
     public static void main(String[] args) {
         System.out.println(showmsg(0));
