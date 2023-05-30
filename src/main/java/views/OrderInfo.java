@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class OrderInfo {
-    private String departure;
+    protected String departure;
 
-    private String destination;
+    protected String destination;
 
-    private String payer;
+    protected String payer;
 
-    private boolean urgent;
+    protected boolean urgent;
 
-    private boolean fragile;
+    protected boolean fragile;
 }
