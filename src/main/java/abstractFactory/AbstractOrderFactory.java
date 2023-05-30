@@ -1,8 +1,9 @@
 package abstractFactory;
 
-import pojo.orderDetails.OrderContent;
-import pojo.orderDetails.OrderFooter;
-import pojo.orderDetails.OrderHeader;
+
+import builder.orderDetails.OrderContent;
+import builder.orderDetails.OrderFooter;
+import builder.orderDetails.OrderHeader;
 
 public interface AbstractOrderFactory {
 

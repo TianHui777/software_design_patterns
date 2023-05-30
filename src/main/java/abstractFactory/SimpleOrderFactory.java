@@ -1,16 +1,17 @@
 package abstractFactory;
 
-import pojo.Order;
+import builder.orderDetails.Order;
 
 public class SimpleOrderFactory {
 
-    AbstractOrderFactory orderFactory;
+    AbstractOrderFactory orderFactoryA=new AreaOrderA();
+    AbstractOrderFactory orderFactoryB=new AreaOrderB();
     public Order createOrder(String type){
-        // TODO 订单简单工厂
-        if ("VIP".equalsIgnoreCase(type)){
-            return null;
+        if ("A".equalsIgnoreCase(type)){
+            return new Order(orderFactoryA);
+        }else if ("B".equalsIgnoreCase(type)){
+            return new Order(orderFactoryB);
         }
-
         return null;
     }
 

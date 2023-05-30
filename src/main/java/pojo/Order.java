@@ -10,7 +10,6 @@ import pojo.orderDetails.OrderHeader;
 public class Order implements ISpecialService {
 
 
-    private AbstractOrderFactory orderFactory;
     private Integer orderId;
 
     private OrderHeader orderHeader;
@@ -20,9 +19,10 @@ public class Order implements ISpecialService {
     private OrderContent orderContent;
 
 
+
     // TODO 被装饰者行为
     @Override
     public Integer getCost() {
-        return 0;
+        return 50;//基本价
     }
 }

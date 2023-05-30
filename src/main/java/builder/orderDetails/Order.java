@@ -1,6 +1,13 @@
 package builder.orderDetails;
 
-public class Order {
+import abstractFactory.AbstractOrderFactory;
+import decorator.ISpecialService;
+import lombok.Data;
+
+@Data
+public class Order implements ISpecialService {
+
+    private AbstractOrderFactory factory;
     private Integer orderId;
 
     private OrderHeader orderHeader;
@@ -9,45 +16,16 @@ public class Order {
 
     private OrderContent orderContent;
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
-    public OrderContent getOrderContent() {
-        return orderContent;
-    }
-
-    public void setOrderContent(OrderContent orderContent) {
-        this.orderContent = orderContent;
-    }
-
-    public OrderHeader getOrderHeader() {
-        return orderHeader;
-    }
-
-    public void setOrderHeader(OrderHeader orderHeader) {
-        this.orderHeader = orderHeader;
-    }
-
-    public OrderFooter getOrderFooter() {
-        return orderFooter;
-    }
-
-    public void setOrderFooter(OrderFooter orderFooter) {
-        this.orderFooter = orderFooter;
+    public Order(AbstractOrderFactory factory) {
+        this.factory=factory;
+        orderId=null;
+        orderContent=factory.generateOrderContent();
+        orderFooter=factory.generateOrderFooter();
+        orderHeader=factory.generateOrderHeader();
     }
 
     @Override
-    public String toString() {
-        return "Order{" +
-                "orderId=" + orderId +
-                ", orderHeader=" + orderHeader +
-                ", orderFooter=" + orderFooter +
-                ", orderContent=" + orderContent +
-                '}';
+    public Integer getCost() {
+        return 50;//»ù±¾¼Û
     }
 }

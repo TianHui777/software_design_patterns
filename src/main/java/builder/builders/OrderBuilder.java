@@ -6,7 +6,7 @@ import builder.orderDetails.OrderFooter;
 import builder.orderDetails.OrderHeader;
 
 public abstract class OrderBuilder {
-    Order order =new Order();
+    Order order =new Order(null);
 
     public abstract void buildOrderHeader(String name);
     public abstract void buildOrderContent(OrderContent orderContent);
