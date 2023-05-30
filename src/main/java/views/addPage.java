@@ -118,7 +118,7 @@ public class addPage {
         submitButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                orderInfo info = new orderInfo();
+                OrderInfo info = new OrderInfo();
 
                 String inputText1 = jtf1.getText();
                 System.out.println("出发地是：" + inputText1);

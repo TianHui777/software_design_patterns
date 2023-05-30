@@ -3,7 +3,7 @@ package views;
 import lombok.Data;
 
 @Data
-public class orderInfo {
+public class OrderInfo {
     private String departure;
 
     private String destination;
