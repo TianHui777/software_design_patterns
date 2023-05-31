@@ -9,16 +9,14 @@ import pojo.orderDetails.OrderHeader;
 @Data
 public class Order implements ISpecialService {
 
-
     private Integer orderId;
-
-    private OrderHeader orderHeader;
-
-    private OrderFooter orderFooter;
-
-    private OrderContent orderContent;
-
-
+    private String destination;
+    private String departure;
+    private String time;
+    private String orderName;
+    private String payerName;
+    private Integer cost;
+    private String transport;
 
     // TODO 被装饰者行为
     @Override
