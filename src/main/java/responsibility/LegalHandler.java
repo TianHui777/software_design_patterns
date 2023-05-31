@@ -12,9 +12,9 @@ public class LegalHandler extends Handler{
 
     @Override
     public String handleRequest(OrderInfo orderInfo) {
-        if (!orderInfo.getPayer().isBlank()
-                && !orderInfo.getDestination().isBlank()
-                && !orderInfo.getDeparture().isBlank()){
+        if (!orderInfo.getPayer().isEmpty()
+                && !orderInfo.getDestination().isEmpty()
+                && !orderInfo.getDeparture().isEmpty()){
             return successor.handleRequest(orderInfo);
         }
 

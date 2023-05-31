@@ -11,6 +11,5 @@ public class GlobalEventHandler extends Handler{
     @Override
     public String handleRequest(OrderInfo orderInfo) {
         return null;
-
     }
 }

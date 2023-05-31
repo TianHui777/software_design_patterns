@@ -1,5 +1,9 @@
 package views;
 
+import adapter.adapters.deleteAdapter;
+import adapter.adapters.updateAdapter;
+import adapter.messageController;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -10,49 +14,51 @@ import java.awt.event.ActionListener;
 
 public class ScorelnfofFrame extends JFrame{
 
-    private JButton jbt1 = new JButton("²éÑ¯");
-    private JButton jbt2 = new JButton("Ìí¼Ó");
-    private JButton jbt3 = new JButton("É¾³ı");
-    private JButton jbt4 = new JButton("ĞŞ¸Ä");
-    private JButton jbt5 = new JButton("·µ»Ø");
+    private JButton jbt1 = new JButton("æŸ¥è¯¢");
+    private JButton jbt2 = new JButton("æ·»åŠ ");
+    private JButton jbt3 = new JButton("åˆ é™¤");
+    private JButton jbt4 = new JButton("ä¿®æ”¹");
+    private JButton jbt5 = new JButton("è¿”å›");
     private JTextField jtf = new JTextField(10);
-    private JLabel lbl = new JLabel("ÇëÊäÈë¼Ä¼şÈËĞÕÃû£º");
+    private JLabel lbl = new JLabel("è¯·è¾“å…¥å¯„ä»¶äººå§“åï¼š");
 
-    //´°¿ÚÖĞÌí¼Ó±í¸ñ
+    //çª—å£ä¸­æ·»åŠ è¡¨æ ¼
     private static JTable table = new JTable();
     private JScrollPane jsp = new JScrollPane(table);
 
-    //°Ñ°´Å¥·ÅÈëÃæ°å
+    //æŠŠæŒ‰é’®æ”¾å…¥é¢æ¿
     private JPanel jp1 = new JPanel();
 
     private JPanel jp3 = new JPanel();
 
+    messageController msg;
+
 
     public ScorelnfofFrame() {
-        this.setTitle("ÎïÁ÷¹ÜÀíÏµÍ³");
+        this.setTitle("ç‰©æµç®¡ç†ç³»ç»Ÿ");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(600, 400);
         this.setLocationRelativeTo(null);
-        //ÉÏ    ²éÑ¯Ãæ°å
+        //ä¸Š    æŸ¥è¯¢é¢æ¿
         jp1.add(lbl);
         jp1.add(jtf);
         jp1.add(jbt1);
-//		jtf.setPreferredSize(new Dimension(10,10));ÉèÖÃÎÄ±¾¿ò´óĞ¡
+//		jtf.setPreferredSize(new Dimension(10,10));è®¾ç½®æ–‡æœ¬æ¡†å¤§å°
         this.add(jp1, BorderLayout.NORTH);
 
-        //ÖĞ  ²éÑ¯±í¸ñ
+        //ä¸­  æŸ¥è¯¢è¡¨æ ¼
         DefaultTableModel dtm = new DefaultTableModel();
         table.setModel(dtm);
-        dtm.addColumn("±àºÅ");
-        dtm.addColumn("³ö·¢µØ");
-        dtm.addColumn("Ä¿µÄµØ");
-        dtm.addColumn("¼Ä¼şÈË");
-        dtm.addColumn("Ê±¼ä");
-        dtm.addColumn("¼Ó¼±");
-        dtm.addColumn("Ò×Ëé");
+        dtm.addColumn("ç¼–å·");
+        dtm.addColumn("å‡ºå‘åœ°");
+        dtm.addColumn("ç›®çš„åœ°");
+        dtm.addColumn("å¯„ä»¶äºº");
+        dtm.addColumn("æ—¶é—´");
+        dtm.addColumn("åŠ æ€¥");
+        dtm.addColumn("æ˜“ç¢");
 
 
-        //Ìí¼ÓÊı¾İ---list--ÎªListÊı×éÓÃÓÚ´¢´æScoreÊı¾İ
+        //æ·»åŠ æ•°æ®---list--ä¸ºListæ•°ç»„ç”¨äºå‚¨å­˜Scoreæ•°æ®
         // for (int i = 0; i < list.size(); i++) {
         //     Vector<Object> data = new Vector<Object>();
         //     data.add(list.get(i).getId());
@@ -61,7 +67,7 @@ public class ScorelnfofFrame extends JFrame{
         //     data.add(list.get(i).getDegree());
         //     dtm.addRow(data);
         // }
-        // //Ìí¼Ó¿Õ±í¸ñ
+        // //æ·»åŠ ç©ºè¡¨æ ¼
         // for (int i = 0; i < list.size(); i++) {
         //     Vector<Object> data = new Vector<Object>();
         //     data.add(null);
@@ -70,9 +76,9 @@ public class ScorelnfofFrame extends JFrame{
         //     data.add(null);
         //     dtm.addRow(data);
         // }
-        //·ÅÈëÖĞ²¿
+        //æ”¾å…¥ä¸­éƒ¨
         this.add(jsp,BorderLayout.CENTER);
-        //ÏÂ ÔöÉ¾¸Ä²éÃæ°å
+        //ä¸‹ å¢åˆ æ”¹æŸ¥é¢æ¿
         jp3.add(jbt2);
         jp3.add(jbt3);
         jp3.add(jbt4);
@@ -81,7 +87,7 @@ public class ScorelnfofFrame extends JFrame{
         this.setVisible(true);
 
 
-        //Ìí¼Ó°´Å¥---Êó±êµã»÷²»ÔÚÊäÈë¿ò·½¿ÉÌí¼Ó
+        //æ·»åŠ æŒ‰é’®---é¼ æ ‡ç‚¹å‡»ä¸åœ¨è¾“å…¥æ¡†æ–¹å¯æ·»åŠ 
         jbt2.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg0) {
@@ -89,29 +95,31 @@ public class ScorelnfofFrame extends JFrame{
             }
         });
 
-        //É¾³ı°´Å¥
+        //åˆ é™¤æŒ‰é’®
         jbt3.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("222");
+                msg=new deleteAdapter();
+                JOptionPane.showConfirmDialog(null, msg.showMeaasge(), "æ¶ˆæ¯æç¤º", JOptionPane.YES_NO_OPTION);
             }
         });
 
-        //ĞŞ¸Ä°´Å¥
+        //ä¿®æ”¹æŒ‰é’®
         jbt4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                System.out.println("333");
+                msg=new updateAdapter();
+                JOptionPane.showConfirmDialog(null, msg.showMeaasge(), "æ¶ˆæ¯æç¤º", JOptionPane.YES_NO_OPTION);
             }
         });
-        //²éÑ¯°´Å¥
+        //æŸ¥è¯¢æŒ‰é’®
         jbt1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg0) {
                 System.out.println("4444");
             }
         });
-        //·µ»Ø°´Å¥
+        //è¿”å›æŒ‰é’®
         jbt5.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg0) {
@@ -121,7 +129,7 @@ public class ScorelnfofFrame extends JFrame{
         this.addWindowListener
                 (new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
-                        int res = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÍË³ö³ÌĞò", "Àë¿ª", JOptionPane.YES_NO_OPTION);
+                        int res = JOptionPane.showConfirmDialog(null, "æ˜¯å¦é€€å‡ºç¨‹åº", "ç¦»å¼€", JOptionPane.YES_NO_OPTION);
                         if (res == JOptionPane.YES_OPTION) {
                             System.exit(0);
                         }

@@ -1,5 +1,8 @@
 package views;
 
+import adapter.adapters.insertAdapter;
+import adapter.messageController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -26,34 +29,36 @@ public class addPage {
     private JLabel jb9;
     private JButton submitButton;
 
+    messageController msg;
+
     public addPage() {
-        // ÉèÖÃ´°¿Ú±êÌâ
-        JFrame jf = new JFrame("Ìí¼Ó¶©µ¥ĞÅÏ¢");
+        // è®¾ç½®çª—å£æ ‡é¢˜
+        JFrame jf = new JFrame("æ·»åŠ è®¢å•ä¿¡æ¯");
         Font f = new Font(Font.DIALOG, Font.BOLD, 22);
         Font f1 = new Font(Font.DIALOG, Font.BOLD, 16);
 
 
-        // ´´½¨×é¼ş
+        // åˆ›å»ºç»„ä»¶
         panel = new JPanel();
-        jb1 = new JLabel("³ö·¢µØ:");
+        jb1 = new JLabel("å‡ºå‘åœ°:");
         jtf1 = new JTextField();
-        jb2 = new JLabel("Ä¿µÄµØ:");
+        jb2 = new JLabel("ç›®çš„åœ°:");
         jtf2 = new JTextField();
-        jb3 = new JLabel("¼Ä¼şÈË:");
+        jb3 = new JLabel("å¯„ä»¶äºº:");
         jtf3 = new JTextField();
-        jb4 = new JLabel("¼Ó¼±:");
-        jtf4 = new JRadioButton("ÊÇ");
-        jtf5 = new JRadioButton("·ñ",true);
+        jb4 = new JLabel("åŠ æ€¥:");
+        jtf4 = new JRadioButton("æ˜¯");
+        jtf5 = new JRadioButton("å¦",true);
         ButtonGroup group1 = new ButtonGroup();
         group1.add(jtf4);
         group1.add(jtf5);
-        jb5 = new JLabel("Ò×Ëé:");
-        jtf6 = new JRadioButton("ÊÇ");
-        jtf7 = new JRadioButton("·ñ",true);
+        jb5 = new JLabel("æ˜“ç¢:");
+        jtf6 = new JRadioButton("æ˜¯");
+        jtf7 = new JRadioButton("å¦",true);
         ButtonGroup group2 = new ButtonGroup();
         group2.add(jtf6);
         group2.add(jtf7);
-        submitButton = new JButton("Ìá½»");
+        submitButton = new JButton("æäº¤");
 
         jtf1.setBounds(100,20,250,40);
         jtf2.setBounds(100,80,250,40);
@@ -64,7 +69,7 @@ public class addPage {
         jtf7.setBounds(200,270,50,20);
         submitButton.setBounds(100,320,150,60);
 
-        // ÉèÖÃ²¼¾Ö¹ÜÀíÆ÷
+        // è®¾ç½®å¸ƒå±€ç®¡ç†å™¨
         panel.setLayout(null);
         panel.setFont(f);
         jb1.setFont(f);
@@ -73,10 +78,6 @@ public class addPage {
         jb4.setFont(f);
         jb5.setFont(f);
         submitButton.setFont(f);
-        // jtf4.setFont(f1);
-        // jtf5.setFont(f1);
-        // jtf6.setFont(f1);
-        // jtf7.setFont(f1);
 
 
         jb1.setBounds(20, 30, 150, 20);
@@ -85,7 +86,7 @@ public class addPage {
         jb4.setBounds(20, 210, 150, 20);
         jb5.setBounds(20, 279, 150, 20);
 
-        // Ìí¼Ó×é¼şµ½Ãæ°å
+        // æ·»åŠ ç»„ä»¶åˆ°é¢æ¿
         panel.add(jb1);
         panel.add(jtf1);
         panel.add(jb2);
@@ -101,18 +102,20 @@ public class addPage {
         panel.add(new JLabel());
         panel.add(submitButton);
 
-        // Ìí¼ÓÃæ°åµ½´°¿Ú
+        // æ·»åŠ é¢æ¿åˆ°çª—å£
         jf.add(panel);
 
-        // ÉèÖÃ´°¿Ú´óĞ¡ºÍÎ»ÖÃ
+        // è®¾ç½®çª—å£å¤§å°å’Œä½ç½®
         jf.setSize(400, 500);
         jf.setLocationRelativeTo(null);
 
-        // ÉèÖÃ´°¿Ú¹Ø±Õ²Ù×÷
+        // è®¾ç½®çª—å£å…³é—­æ“ä½œ
         jf.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-        // ÏÔÊ¾´°¿Ú
+        // æ˜¾ç¤ºçª—å£
         jf.setVisible(true);
+
+
 
 
         submitButton.addActionListener(new ActionListener() {
@@ -121,13 +124,13 @@ public class addPage {
                 OrderInfo info = new OrderInfo();
 
                 String inputText1 = jtf1.getText();
-                System.out.println("³ö·¢µØÊÇ£º" + inputText1);
+                System.out.println("å‡ºå‘åœ°æ˜¯ï¼š" + inputText1);
 
                 String inputText2 = jtf2.getText();
-                System.out.println("Ä¿µÄµØÊÇ£º" + inputText2);
+                System.out.println("ç›®çš„åœ°æ˜¯ï¼š" + inputText2);
 
                 String inputText3 = jtf3.getText();
-                System.out.println("¼Ä¼şÈËÊÇ£º" + inputText3);
+                System.out.println("å¯„ä»¶äººæ˜¯ï¼š" + inputText3);
 
                 String selectedText1=null;
                 if (jtf4.isSelected()) {
@@ -136,9 +139,9 @@ public class addPage {
                      selectedText1 = jtf5.getText();
 
                 } else {
-                    System.out.println("Ã»ÓĞÑ¡ÖĞµÄµ¥Ñ¡¿ò");
+                    System.out.println("æ²¡æœ‰é€‰ä¸­çš„å•é€‰æ¡†");
                 }
-                System.out.println("ÊÇ·ñ¼Ó¼±£º" + selectedText1);
+                System.out.println("æ˜¯å¦åŠ æ€¥ï¼š" + selectedText1);
 
                 String selectedText2=null;
                 if (jtf6.isSelected()) {
@@ -147,17 +150,22 @@ public class addPage {
                      selectedText2 = jtf7.getText();
 
                 } else {
-                    System.out.println("Ã»ÓĞÑ¡ÖĞµÄµ¥Ñ¡¿ò");
+                    System.out.println("æ²¡æœ‰é€‰ä¸­çš„å•é€‰æ¡†");
                 }
-                System.out.println("ÊÇ·ñÒ×Ëé£º" + selectedText2);
+                System.out.println("æ˜¯å¦æ˜“ç¢ï¼š" + selectedText2);
 
                 info.setDeparture(inputText1);
                 info.setDestination(inputText2);
                 info.setPayer(inputText3);
-                info.setFragile(selectedText2 == "ÊÇ");
-                info.setUrgent(selectedText1 == "ÊÇ");
+                info.setFragile(selectedText2 == "æ˜¯");
+                info.setUrgent(selectedText1 == "å¦");
 
                 System.out.println(info);
+
+                msg = new insertAdapter();
+                String message = msg.showMeaasge();
+                System.out.println(message);
+                JOptionPane.showConfirmDialog(null, message, "æ¶ˆæ¯æç¤º", JOptionPane.YES_NO_OPTION);
                 //TODO
             }
         });
