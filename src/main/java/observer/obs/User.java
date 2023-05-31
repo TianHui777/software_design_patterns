@@ -4,6 +4,7 @@ import observer.Observer;
 
 public class User implements Observer {
     private String name;
+    private String pwd;
 
     public User(String name){
         this.name = name;

@@ -27,7 +27,7 @@ public class login {
 
     public login() {
 
-        JFrame jf = new JFrame("ç‰©æµç®¡ç†ç³»ç»Ÿç™»é™†ç•Œé¢");
+        JFrame jf = new JFrame("ÎïÁ÷¹ÜÀíÏµÍ³µÇÂ½½çÃæ");
         jf.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         Font f = new Font(Font.DIALOG, Font.BOLD, 22);
 
@@ -35,14 +35,14 @@ public class login {
         jf.setLocationRelativeTo(null);
         JPanel j1 = new JPanel();
         JPanel j2 = new JPanel();
-        JLabel jla1 = new JLabel("ç®¡ç†äººå‘˜ç™»å½•");
-        JLabel jla2 = new JLabel("å¸å·");
-        JLabel jla3 = new JLabel("å¯†ç ");
-        JLabel jlb1 = new JLabel("å®¢æˆ·ç™»å½•");
-        JLabel jlb2 = new JLabel("å¸å·");
-        JLabel jlb3 = new JLabel("å¯†ç ");
-        JButton jb1 = new JButton("ç™»å½•");
-        JButton jb2 = new JButton("æ³¨å†Œ");
+        JLabel jla1 = new JLabel("¹ÜÀíÈËÔ±µÇÂ¼");
+        JLabel jla2 = new JLabel("ÕÊºÅ");
+        JLabel jla3 = new JLabel("ÃÜÂë");
+        JLabel jlb1 = new JLabel("¿Í»§µÇÂ¼");
+        JLabel jlb2 = new JLabel("ÕÊºÅ");
+        JLabel jlb3 = new JLabel("ÃÜÂë");
+        JButton jb1 = new JButton("µÇÂ¼");
+        JButton jb2 = new JButton("×¢²á");
 
 
         jf.setLayout(null);
@@ -112,7 +112,7 @@ public class login {
         jf.addWindowListener
                 (new WindowAdapter() {
                     public void windowClosing(WindowEvent e) {
-                        int res = JOptionPane.showConfirmDialog(null, "æ˜¯å¦é€€å‡ºç¨‹åº", "ç¦»å¼€", JOptionPane.YES_NO_OPTION);
+                        int res = JOptionPane.showConfirmDialog(null, "ÊÇ·ñÍË³ö³ÌĞò", "Àë¿ª", JOptionPane.YES_NO_OPTION);
                         if (res == JOptionPane.YES_OPTION) {
                             System.exit(0);
                         }
