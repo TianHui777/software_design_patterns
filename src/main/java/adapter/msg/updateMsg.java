@@ -1,5 +1,5 @@
 package adapter.msg;
 
 public class updateMsg {
-    public String show(){return "¸üĞÂ¶©µ¥³É¹¦£¡";}
+    public String show(){return "æ›´æ–°è®¢å•æˆåŠŸï¼";}
 }

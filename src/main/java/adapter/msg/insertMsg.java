@@ -1,5 +1,5 @@
 package adapter.msg;
 
 public class insertMsg {
-    public String show(){return "²åÈë¶©µ¥³É¹¦£¡";}
+    public String show(){return "æ’å…¥è®¢å•æˆåŠŸï¼";}
 }

@@ -1,5 +1,5 @@
 package adapter.msg;
 
 public class deleteMsg {
-    public String show(){return "É¾³ı¶©µ¥³É¹¦£¡";}
+    public String show(){return "åˆ é™¤è®¢å•æˆåŠŸï¼";}
 }
