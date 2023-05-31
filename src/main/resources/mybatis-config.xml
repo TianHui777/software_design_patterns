@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+
+    <!-- 全局属性配置 -->
+    <properties>
+        <property name="username" value="root"/>
+        <property name="password" value="YYcx2928999."/>
+    </properties>
+
+    <!-- 全局设置 -->
+    <settings>
+        <!-- 开启二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!-- 设置默认的执行器类型 -->
+        <setting name="defaultExecutorType" value="REUSE"/>
+    </settings>
+
+    <!-- 类型别名配置 -->
+    <typeAliases>
+        <!-- 设置别名，可以直接在映射文件中使用别名 -->
+        <package name="com.soft.entity"/>
+    </typeAliases>
+
+<!--    &lt;!&ndash; 类型处理器配置 &ndash;&gt;-->
+<!--    <typeHandlers>-->
+<!--        <typeHandler handler="com.soft.MyTypeHandler"/>-->
+<!--    </typeHandlers>-->
+
+<!--    &lt;!&ndash; 自定义对象工厂 &ndash;&gt;-->
+<!--    <objectFactory type="com.soft.MyObjectFactory"/>-->
+
+<!--    &lt;!&ndash; 自定义对象包装工厂 &ndash;&gt;-->
+<!--    <objectWrapperFactory type="com.soft.MyObjectWrapperFactory"/>-->
+
+<!--    &lt;!&ndash; 自定义反射器工厂 &ndash;&gt;-->
+<!--    <reflectorFactory type="com.soft.MyReflectorFactory"/>-->
+
+<!--    &lt;!&ndash; 插件配置 &ndash;&gt;-->
+<!--    <plugins>-->
+<!--        <plugin interceptor="com.soft.MyPlugin">-->
+<!--            <property name="someProperty" value="100"/>-->
+<!--        </plugin>-->
+<!--    </plugins>-->
+
+    <!-- 环境配置 -->
+    <environments default="development">
+        <environment id="development">
+            <!-- 数据库连接配置 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://47.103.40.79:3306/software_design_pattern?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false" />
+                <property name="username" value="root" />
+                <property name="password" value="YYcx2928999." />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 映射器配置 -->
+    <mappers>
+        <mapper class="com.soft.dao.OrderMapper"></mapper>
+        <mapper class="com.soft.dao.UserMapper"></mapper>
+        <package name="com.soft.dao.mapper"/>
+    </mappers>
+
+</configuration>

@@ -1,0 +1,5 @@
+<configuration>
+    <plugins>
+        <plugin interceptor="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
+    </plugins>
+</configuration>

@@ -6,13 +6,16 @@ import lombok.Data;
 import pojo.orderDetails.OrderContent;
 import pojo.orderDetails.OrderFooter;
 import pojo.orderDetails.OrderHeader;
+
+import java.util.Date;
+
 @Data
 public class Order implements ISpecialService {
 
     private Integer orderId;
     private String destination;
     private String departure;
-    private String time;
+    private Date time;
     private String orderName;
     private String payerName;
     private Integer cost;

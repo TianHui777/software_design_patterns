@@ -8,8 +8,9 @@
     <file url="file://$PROJECT_DIR$/src/main/java/adapter/msg/updateMsg.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/adapter/test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/views/ScorelnfofFrame.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/views/addPage.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/views/addPage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/views/login.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
