@@ -1,5 +1,6 @@
 package responsibility;
 
+import com.soft.entity.SOrder;
 import lombok.Data;
 import views.OrderInfo;
 
@@ -11,6 +12,6 @@ public abstract class Handler {
     //下一个处理器
     protected Handler successor;
     //
-    public abstract String handleRequest(OrderInfo orderInfo);
+    public abstract String handleRequest(SOrder sOrder);
 
 }
