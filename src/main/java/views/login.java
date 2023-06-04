@@ -93,7 +93,7 @@ public class login {
         jb1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-
+                System.out.println("小马");
                 new OrderlnfofFrame();
                 jf.dispose();
             }

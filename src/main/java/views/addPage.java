@@ -9,16 +9,25 @@ import decorator.FragileDecorator;
 import decorator.ISpecialService;
 import decorator.UrgentDecorator;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import observer.Observer;
+import observer.insertObservable;
+import observer.obs.ThirdPart;
+import observer.obs.User;
+import responsibility.EmptyHandler;
+import responsibility.GlobalEventHandler;
+import responsibility.Handler;
+import responsibility.SpecialCharacterHandler;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JRadioButton;
 
+
+@Slf4j
 public class addPage {
     private JPanel panel;
     private JLabel jb1;
@@ -156,10 +165,10 @@ public class addPage {
                 String inputText3 = jtf3.getText();
                 System.out.println("寄件人是：" + inputText3);
 
-                String inputText4 = jtf3.getText();
+                String inputText4 = jtf8.getText();
                 System.out.println("寄件人是：" + inputText4);
 
-                String inputText5 = jtf3.getText();
+                String inputText5 = jtf9.getText();
                 System.out.println("寄件人是：" + inputText5);
 
                 String selectedText1 = null;
@@ -216,15 +225,35 @@ public class addPage {
                 info.setOrderId(id);
                 System.out.println(info);
 
-                SOrderServiceImpl orderService = new SOrderServiceImpl();
-                int i = orderService.insert(info);
-                if (i == 1) {
-                    msg = new insertAdapter();
-                    String message = msg.showMeaasge();
-                    JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
-                }else {
-                    JOptionPane.showConfirmDialog(null, "新增错误");
-                }
+                // //职责链
+                // // 非空检测
+                // Handler emptyHandler = new EmptyHandler();
+                // // 特殊字符检测
+                // Handler specialCharacterHandler = new SpecialCharacterHandler();
+                // // 全局检测
+                // Handler globalEventHandler = new GlobalEventHandler();
+                // globalEventHandler.setSuccessor(emptyHandler);
+                // emptyHandler.setSuccessor(specialCharacterHandler);
+                // log.info(specialCharacterHandler.handleRequest(info));
+                //
+                //
+                // //以下是观察者模式的测试代码,创建订单之后调用即可
+                // insertObservable iober =new insertObservable();
+                // Observer user=new User(inputText3);
+                // Observer thirdPart =new ThirdPart(inputText4);
+                // iober.add(user);
+                // iober.add(thirdPart);
+                // iober.notifyObservers();
+                //
+                // SOrderServiceImpl orderService = new SOrderServiceImpl();
+                // int i = orderService.insert(info);
+                // if (i == 1) {
+                //     msg = new insertAdapter();
+                //     String message = msg.showMeaasge();
+                //     JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
+                // }else {
+                //     JOptionPane.showConfirmDialog(null, "新增错误");
+                // }
 
             }
         });

@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/adapter/msg/insertMsg.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/adapter/msg/updateMsg.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/adapter/test.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/builder/test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/views/OrderlnfofFrame.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/views/addPage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/views/login.java" charset="UTF-8" />

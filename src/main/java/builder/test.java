@@ -13,16 +13,16 @@ import observer.obs.User;
 public class test {
 
     public static void test1(){
-        //ÒÔÏÂÊÇ½¨ÔìÕßÄ£Ê½µÄ²âÊÔ´úÂë
+        //ä»¥ä¸‹æ˜¯å»ºé€ è€…æ¨¡å¼çš„æµ‹è¯•ä»£ç 
         OrderGenerator generator = new OrderGenerator(1);
         Order order;
         order = generator.newOrder("km","cq","not now","sheepxj03");
         System.out.println(order);
 
-        //ÒÔÏÂÊÇ¹Û²ìÕßÄ£Ê½µÄ²âÊÔ´úÂë,´´½¨¶©µ¥Ö®ºóµ÷ÓÃ¼´¿É
+        //ä»¥ä¸‹æ˜¯è§‚å¯Ÿè€…æ¨¡å¼çš„æµ‹è¯•ä»£ç ,åˆ›å»ºè®¢å•ä¹‹åè°ƒç”¨å³å¯
         insertObservable iober =new insertObservable();
         Observer user=new User("sheepxj");
-        Observer thirdPart =new ThirdPart("Ë³·á¿ìµİ");
+        Observer thirdPart =new ThirdPart("é¡ºä¸°å¿«é€’");
         iober.add(user);
         iober.add(thirdPart);
         iober.notifyObservers();
