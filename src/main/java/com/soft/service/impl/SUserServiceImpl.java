@@ -40,7 +40,11 @@ public class SUserServiceImpl extends ServiceImpl<SUserMapper, SUser> implements
 
     @Override
     public int delete(SUser sUser) {
-        int ans = mapper.deleteById(sUser);
+        UpdateWrapper<SUser> queryWrapper = Wrappers.update();
+        SUser q=new SUser();
+        q.setUserId(sUser.getUserId());
+        queryWrapper.setEntity(q);
+        int ans=mapper.delete(queryWrapper);
         sqlSession.commit();
         return ans;
     }

@@ -25,7 +25,8 @@ public class Test {
         order.setTransport("boat");
         order.setPayerName("111");
 //        service.insert(order);
-        service.update(order);
+//        service.update(order);
+        service.delete(order);
 //        List<SOrder> sOrders = service.queryAll();
 //        for (SOrder sOrder : sOrders) {
 //            System.out.println(sOrder);
@@ -44,6 +45,7 @@ public class Test {
 //        for (SUser sUser : service.queryAll()) {
 //            System.out.println(sUser);
 //        }
+        service.delete(s);
     }
     public static void main(String[] args) throws IOException {
 //        test();

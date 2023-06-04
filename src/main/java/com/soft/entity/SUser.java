@@ -1,5 +1,6 @@
 package com.soft.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import lombok.Data;
@@ -19,7 +20,7 @@ import lombok.EqualsAndHashCode;
 public class SUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @TableId
     private Integer userId;
 
     private String userName;

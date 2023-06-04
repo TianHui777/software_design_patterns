@@ -40,7 +40,11 @@ public class SOrderServiceImpl extends ServiceImpl<SOrderMapper, SOrder> impleme
 
     @Override
     public int delete(SOrder sOrder) {
-        int ans=mapper.deleteById(sOrder);
+        UpdateWrapper<SOrder> queryWrapper = Wrappers.update();
+        SOrder q=new SOrder();
+        q.setOrderId(sOrder.getOrderId());
+        queryWrapper.setEntity(q);
+        int ans=mapper.delete(queryWrapper);
         sqlSession.commit();
         return ans;
     }
