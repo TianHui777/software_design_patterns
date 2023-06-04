@@ -20,7 +20,6 @@ public interface ISOrderService extends IService<SOrder> {
     int update(SOrder sOrder);
     int delete(SOrder sOrder);
     List<SOrder> queryAll();
-    SOrder queryOne(SOrder sOrder);
-
+    SOrder queryOne(String name);
 
 }

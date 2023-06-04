@@ -59,10 +59,17 @@ public class SOrderServiceImpl extends ServiceImpl<SOrderMapper, SOrder> impleme
         return ans;
     }
 
+    // @Override
+    // public SOrder queryOne(SOrder sOrder) {
+    //     QueryWrapper queryWrapper=Wrappers.query();
+    //     queryWrapper.setEntity(sOrder);
+    //     return mapper.selectOne(queryWrapper);
+    // }
+
     @Override
-    public SOrder queryOne(SOrder sOrder) {
+    public SOrder queryOne(String name) {
         QueryWrapper queryWrapper=Wrappers.query();
-        queryWrapper.setEntity(sOrder);
+        queryWrapper.eq("payer_name",name);
         return mapper.selectOne(queryWrapper);
     }
 

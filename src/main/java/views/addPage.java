@@ -2,11 +2,21 @@ package views;
 
 import adapter.adapters.insertAdapter;
 import adapter.messageController;
+import com.soft.entity.SOrder;
+import com.soft.service.impl.SOrderServiceImpl;
+import decorator.Decorator;
+import decorator.FragileDecorator;
+import decorator.ISpecialService;
+import decorator.UrgentDecorator;
+import lombok.Data;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.JRadioButton;
 
 public class addPage {
@@ -23,10 +33,10 @@ public class addPage {
     private JLabel jb5;
     private JRadioButton jtf6;
     private JRadioButton jtf7;
+    private JTextField jtf8;
     private JLabel jb6;
+    private JTextField jtf9;
     private JLabel jb7;
-    private JLabel jb8;
-    private JLabel jb9;
     private JButton submitButton;
 
     messageController msg;
@@ -35,7 +45,6 @@ public class addPage {
         // 设置窗口标题
         JFrame jf = new JFrame("添加订单信息");
         Font f = new Font(Font.DIALOG, Font.BOLD, 22);
-        Font f1 = new Font(Font.DIALOG, Font.BOLD, 16);
 
 
         // 创建组件
@@ -46,28 +55,35 @@ public class addPage {
         jtf2 = new JTextField();
         jb3 = new JLabel("寄件人:");
         jtf3 = new JTextField();
+        jb6 = new JLabel("类型:");
+        jtf8 = new JTextField();
+        jb7 = new JLabel("载具:");
+        jtf9 = new JTextField();
         jb4 = new JLabel("加急:");
         jtf4 = new JRadioButton("是");
-        jtf5 = new JRadioButton("否",true);
+        jtf5 = new JRadioButton("否", true);
         ButtonGroup group1 = new ButtonGroup();
         group1.add(jtf4);
         group1.add(jtf5);
         jb5 = new JLabel("易碎:");
         jtf6 = new JRadioButton("是");
-        jtf7 = new JRadioButton("否",true);
+        jtf7 = new JRadioButton("否", true);
         ButtonGroup group2 = new ButtonGroup();
         group2.add(jtf6);
         group2.add(jtf7);
         submitButton = new JButton("提交");
 
-        jtf1.setBounds(100,20,250,40);
-        jtf2.setBounds(100,80,250,40);
-        jtf3.setBounds(100,140,250,40);
-        jtf4.setBounds(100,210,50,20);
-        jtf5.setBounds(200,210,50,20);
-        jtf6.setBounds(100,270,50,20);
-        jtf7.setBounds(200,270,50,20);
-        submitButton.setBounds(100,320,150,60);
+        jtf1.setBounds(100, 20, 250, 40);
+        jtf2.setBounds(100, 80, 250, 40);
+        jtf3.setBounds(100, 140, 250, 40);
+        jtf8.setBounds(100, 200, 250, 40);
+        jtf9.setBounds(100, 260, 250, 40);
+
+        jtf4.setBounds(100, 330, 50, 20);
+        jtf5.setBounds(200, 330, 50, 20);
+        jtf6.setBounds(100, 400, 50, 20);
+        jtf7.setBounds(200, 400, 50, 20);
+        submitButton.setBounds(100, 450, 150, 60);
 
         // 设置布局管理器
         panel.setLayout(null);
@@ -77,14 +93,18 @@ public class addPage {
         jb3.setFont(f);
         jb4.setFont(f);
         jb5.setFont(f);
+        jb6.setFont(f);
+        jb7.setFont(f);
         submitButton.setFont(f);
 
 
         jb1.setBounds(20, 30, 150, 20);
         jb2.setBounds(20, 90, 150, 20);
         jb3.setBounds(20, 150, 150, 20);
-        jb4.setBounds(20, 210, 150, 20);
-        jb5.setBounds(20, 279, 150, 20);
+        jb6.setBounds(20, 210, 150, 20);
+        jb7.setBounds(20, 270, 150, 20);
+        jb4.setBounds(20, 330, 150, 20);
+        jb5.setBounds(20, 390, 150, 20);
 
         // 添加组件到面板
         panel.add(jb1);
@@ -93,6 +113,10 @@ public class addPage {
         panel.add(jtf2);
         panel.add(jb3);
         panel.add(jtf3);
+        panel.add(jb6);
+        panel.add(jtf8);
+        panel.add(jb7);
+        panel.add(jtf9);
         panel.add(jb4);
         panel.add(jtf4);
         panel.add(jtf5);
@@ -106,7 +130,7 @@ public class addPage {
         jf.add(panel);
 
         // 设置窗口大小和位置
-        jf.setSize(400, 500);
+        jf.setSize(400, 550);
         jf.setLocationRelativeTo(null);
 
         // 设置窗口关闭操作
@@ -116,12 +140,12 @@ public class addPage {
         jf.setVisible(true);
 
 
-
-
         submitButton.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                OrderInfo info = new OrderInfo();
+                Date now = new Date();
+
+                SOrder info = new SOrder();
 
                 String inputText1 = jtf1.getText();
                 System.out.println("出发地是：" + inputText1);
@@ -132,22 +156,28 @@ public class addPage {
                 String inputText3 = jtf3.getText();
                 System.out.println("寄件人是：" + inputText3);
 
-                String selectedText1=null;
+                String inputText4 = jtf3.getText();
+                System.out.println("寄件人是：" + inputText4);
+
+                String inputText5 = jtf3.getText();
+                System.out.println("寄件人是：" + inputText5);
+
+                String selectedText1 = null;
                 if (jtf4.isSelected()) {
-                     selectedText1 = jtf4.getText();
+                    selectedText1 = jtf4.getText();
                 } else if (jtf5.isSelected()) {
-                     selectedText1 = jtf5.getText();
+                    selectedText1 = jtf5.getText();
 
                 } else {
                     System.out.println("没有选中的单选框");
                 }
                 System.out.println("是否加急：" + selectedText1);
 
-                String selectedText2=null;
+                String selectedText2 = null;
                 if (jtf6.isSelected()) {
-                     selectedText2 = jtf6.getText();
+                    selectedText2 = jtf6.getText();
                 } else if (jtf7.isSelected()) {
-                     selectedText2 = jtf7.getText();
+                    selectedText2 = jtf7.getText();
 
                 } else {
                     System.out.println("没有选中的单选框");
@@ -156,17 +186,46 @@ public class addPage {
 
                 info.setDeparture(inputText1);
                 info.setDestination(inputText2);
-                info.setPayer(inputText3);
-                info.setFragile(selectedText2 == "是");
-                info.setUrgent(selectedText1 == "否");
-
+                info.setPayerName(inputText3);
+                info.setOrderName(inputText4);
+                info.setTransport(inputText5);
+                info.setTime(now);
+                int cost = 0;
+                if (selectedText1 == "是") {
+                    ISpecialService iSpecialService = new Decorator() {
+                        @Override
+                        public Integer getCost() {
+                            return 100;
+                        }
+                    };
+                    Decorator decorator = new FragileDecorator(iSpecialService);
+                    cost = decorator.getCost();
+                }
+                if (selectedText2 == "是") {
+                    ISpecialService iSpecialService = new Decorator() {
+                        @Override
+                        public Integer getCost() {
+                            return 100;
+                        }
+                    };
+                    Decorator decorator = new UrgentDecorator(iSpecialService);
+                    cost = decorator.getCost();
+                }
+                info.setCost(cost);
+                int id = 0;
+                info.setOrderId(id);
                 System.out.println(info);
 
-                msg = new insertAdapter();
-                String message = msg.showMeaasge();
-                System.out.println(message);
-                JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
-                //TODO
+                SOrderServiceImpl orderService = new SOrderServiceImpl();
+                int i = orderService.insert(info);
+                if (i == 1) {
+                    msg = new insertAdapter();
+                    String message = msg.showMeaasge();
+                    JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
+                }else {
+                    JOptionPane.showConfirmDialog(null, "新增错误");
+                }
+
             }
         });
     }

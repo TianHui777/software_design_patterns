@@ -94,7 +94,7 @@ public class login {
 
             public void actionPerformed(ActionEvent e) {
 
-                new ScorelnfofFrame();
+                new OrderlnfofFrame();
                 jf.dispose();
             }
         });
@@ -103,7 +103,7 @@ public class login {
 
             public void actionPerformed(ActionEvent e) {
 
-                new ScorelnfofFrame();
+                new OrderlnfofFrame();
                 jf.dispose();
             }
         });
