@@ -35,7 +35,7 @@ public class MybatisUtil {
     private static SqlSessionFactory sqlSessionFactory;
     private static SqlSession session;
 
-    public static SqlSession buildSqlSessionFactory() throws IOException {
+    public static SqlSession buildSqlSessionFactory() {
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         //这是mybatis-plus的配置对象，对mybatis的Configuration进行增强
         MybatisConfiguration configuration = new MybatisConfiguration();
@@ -58,7 +58,11 @@ public class MybatisUtil {
         //设置数据源
         Environment environment = new Environment("1", new JdbcTransactionFactory(), initDataSource());
         configuration.setEnvironment(environment);
-        registryMapperXml(configuration, "mapper");
+        try {
+            registryMapperXml(configuration, "mapper");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         //构建sqlSessionFactory
         sqlSessionFactory = builder.build(configuration);
         //创建session

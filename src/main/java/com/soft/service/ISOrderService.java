@@ -4,6 +4,7 @@ import com.soft.entity.SOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * <p>
@@ -15,5 +16,11 @@ import java.io.IOException;
  */
 public interface ISOrderService extends IService<SOrder> {
 
-    void insert(SOrder sOrder) throws IOException;
+    int insert(SOrder sOrder);
+    int update(SOrder sOrder);
+    int delete(SOrder sOrder);
+    List<SOrder> queryAll();
+    SOrder queryOne(SOrder sOrder);
+
+
 }
