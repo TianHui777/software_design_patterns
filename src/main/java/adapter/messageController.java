@@ -1,8 +1,8 @@
 package adapter;
 
-//Ö±½Ó³õÊ¼»¯Õâ¸öcontrollerÑ¡ÔñÊµÏÖÄÄ¸öÊÊÅäÆ÷¼´¿É£¬¾ßÌåÊ¹ÓÃ¿É¿´testÀà
+//ç›´æ¥åˆå§‹åŒ–è¿™ä¸ªcontrolleré€‰æ‹©å®ç°å“ªä¸ªé€‚é…å™¨å³å¯ï¼Œå…·ä½“ä½¿ç”¨å¯çœ‹testç±»
 public abstract class messageController {
 
-    //·µ»ØÏûÏ¢·½·¨
+    //è¿”å›æ¶ˆæ¯æ–¹æ³•
     public abstract String showMeaasge();
 }
