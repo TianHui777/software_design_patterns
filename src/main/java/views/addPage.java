@@ -225,35 +225,39 @@ public class addPage {
                 info.setOrderId(id);
                 System.out.println(info);
 
-                // //职责链
-                // // 非空检测
-                // Handler emptyHandler = new EmptyHandler();
-                // // 特殊字符检测
-                // Handler specialCharacterHandler = new SpecialCharacterHandler();
-                // // 全局检测
-                // Handler globalEventHandler = new GlobalEventHandler();
-                // globalEventHandler.setSuccessor(emptyHandler);
-                // emptyHandler.setSuccessor(specialCharacterHandler);
-                // log.info(specialCharacterHandler.handleRequest(info));
-                //
-                //
-                // //以下是观察者模式的测试代码,创建订单之后调用即可
-                // insertObservable iober =new insertObservable();
-                // Observer user=new User(inputText3);
-                // Observer thirdPart =new ThirdPart(inputText4);
-                // iober.add(user);
-                // iober.add(thirdPart);
-                // iober.notifyObservers();
-                //
-                // SOrderServiceImpl orderService = new SOrderServiceImpl();
-                // int i = orderService.insert(info);
-                // if (i == 1) {
-                //     msg = new insertAdapter();
-                //     String message = msg.showMeaasge();
-                //     JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
-                // }else {
-                //     JOptionPane.showConfirmDialog(null, "新增错误");
-                // }
+                //职责链
+                // 非空检测
+                Handler emptyHandler = new EmptyHandler();
+                // 特殊字符检测
+                Handler specialCharacterHandler = new SpecialCharacterHandler();
+                // 全局检测
+                Handler globalEventHandler = new GlobalEventHandler();
+                globalEventHandler.setSuccessor(emptyHandler);
+                emptyHandler.setSuccessor(specialCharacterHandler);
+                log.info(specialCharacterHandler.handleRequest(info));
+                if(specialCharacterHandler.handleRequest(info)=="用户输入的信息存在非法字符，请重新输入"){
+                    JOptionPane.showConfirmDialog(null, "非法字符！！", "消息提示", JOptionPane.YES_NO_OPTION);
+                }else {
+                    log.info("111");
+                    //以下是观察者模式的测试代码,创建订单之后调用即可
+                    insertObservable iober =new insertObservable();
+                    Observer user=new User(inputText3);
+                    Observer thirdPart =new ThirdPart(inputText4);
+                    iober.add(user);
+                    iober.add(thirdPart);
+                    iober.notifyObservers();
+
+                    SOrderServiceImpl orderService = new SOrderServiceImpl();
+                    int i = orderService.insert(info);
+                    if (i == 1) {
+                        msg = new insertAdapter();
+                        String message = msg.showMeaasge();
+                        JOptionPane.showConfirmDialog(null, message, "消息提示", JOptionPane.YES_NO_OPTION);
+                    }else {
+                        JOptionPane.showConfirmDialog(null, "新增错误");
+                    }
+                }
+
 
             }
         });

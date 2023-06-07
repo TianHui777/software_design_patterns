@@ -5,7 +5,7 @@ import builder.orderDetails.Order;
 import java.util.ArrayList;
 import java.util.Observable;
 
-public class insertObservable extends Observable {
+public class insertObservable {
 
     protected ArrayList<Observer> roles = new ArrayList<Observer>();
 
