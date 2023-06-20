@@ -16,8 +16,7 @@ public class EmptyHandler extends Handler{
                 && !sOrder.getDeparture().isEmpty()
                 && !sOrder.getOrderName().isEmpty()
                 && !sOrder.getTransport().isEmpty()
-                && !sOrder.getPayerName().isEmpty()
-                && !sOrder.getCost().equals(0)){
+                && !sOrder.getPayerName().isEmpty()){
             return successor.handleRequest(sOrder);
         }
 

@@ -1,5 +1,6 @@
 package views;
 
+import Singleton.GlobalContext;
 import adapter.adapters.insertAdapter;
 import adapter.messageController;
 import com.soft.entity.SOrder;
@@ -234,9 +235,10 @@ public class addPage {
                 Handler globalEventHandler = new GlobalEventHandler();
                 globalEventHandler.setSuccessor(emptyHandler);
                 emptyHandler.setSuccessor(specialCharacterHandler);
-                log.info(specialCharacterHandler.handleRequest(info));
-                if(specialCharacterHandler.handleRequest(info)=="用户输入的信息存在非法字符，请重新输入"){
-                    JOptionPane.showConfirmDialog(null, "非法字符！！", "消息提示", JOptionPane.YES_NO_OPTION);
+                log.info(globalEventHandler.handleRequest(info));
+                GlobalContext globalContext = GlobalContext.getInstance();
+                if(!globalEventHandler.handleRequest(info).equals("success")){
+                    JOptionPane.showConfirmDialog(null, specialCharacterHandler.handleRequest(info), "消息提示", JOptionPane.YES_NO_OPTION);
                 }else {
                     log.info("111");
                     //以下是观察者模式的测试代码,创建订单之后调用即可

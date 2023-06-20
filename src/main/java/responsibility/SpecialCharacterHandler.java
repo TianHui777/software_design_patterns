@@ -26,7 +26,11 @@ public class SpecialCharacterHandler extends Handler{
         if (!matcher1.find() && !matcher2.find()
                 && !matcher3.find() && !matcher4.find()
                 && !matcher5.find()){
-            return successor.handleRequest(sOrder);
+            //return successor.handleRequest(sOrder);
+            return "success";
+
+
+
         }else {
             return "用户输入的信息存在非法字符，请重新输入";
         }

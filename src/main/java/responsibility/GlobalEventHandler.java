@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class GlobalEventHandler extends Handler{
-    GlobalContext globalContext;
+    GlobalContext globalContext=GlobalContext.getInstance();
     @Override
     public String handleRequest(SOrder sOrder) {
-        if (!globalContext.getSpecial()&&!("normal".equals(globalContext.getUserType()))){
+        if (!globalContext.getSpecial()&&("normal".equals(globalContext.getUserType()))){
             return successor.handleRequest(sOrder);
         }
         else if (globalContext.getSpecial()){
